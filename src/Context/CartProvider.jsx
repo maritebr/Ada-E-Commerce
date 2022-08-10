@@ -7,15 +7,18 @@ const CartProvider = ({ children }) => {
   const [token, setToken] = useState(window.localStorage.getItem('token'))
   const [username, setUsername] = useState(window.localStorage.getItem('username'))
   const [email, setEmail] = useState(window.localStorage.getItem('email'))
+  const [uid, setUid] = useState(window.localStorage.getItem('uid'))
 
   const login = (userData) => {
     console.log(userData)
     window.localStorage.setItem('token', userData.jwt)
     window.localStorage.setItem('username', userData.user.username)
     window.localStorage.setItem('email', userData.user.email)
+    window.localStorage.setItem('uid', userData.user.id)
     setToken(userData.jwt)
     setUsername(userData.user.username)
     setEmail(userData.user.email)
+    setUid(userData.user.id)
   }
 
   const logOut = () => {
@@ -83,7 +86,8 @@ const CartProvider = ({ children }) => {
         login,
         logOut,
         username,
-        email
+        email,
+        uid
       }}
     >
       {children}

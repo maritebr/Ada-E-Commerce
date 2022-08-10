@@ -1,14 +1,31 @@
 import { useContext } from 'react'
 
 import { Box, Button, Container, Flex, Text } from '@chakra-ui/react'
-import { Link } from 'react-router-dom'
+import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
 import CartContext from '../../Context/CartContext'
 import Producto from '../../Layout/Navbar/Producto'
 
 const PedidosCarrito = () => {
-  const { cart, calcularTotal } = useContext(CartContext)
+  const { cart, calcularTotal, uid } = useContext(CartContext)
   const total = calcularTotal()
+  const navigate = useNavigate()
+
+  const checkoutCompra = async () => {
+    try {
+      const { data } = await axios.post(
+        'https://strapiecommerce-production.up.railway.app/api/orders',
+        {
+          data: { Item: cart, users_permissions_users: uid }
+        }
+      )
+      console.log(data)
+      navigate(`/pedidos/${data.data.id}`)
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   return (
     <>
@@ -65,9 +82,7 @@ const PedidosCarrito = () => {
                   <Text>Total</Text>
                   <Text fontWeight={'bold'}>{`$ ${total}`}</Text>
                 </Flex>
-                <Link to="/pedidos">
-                  <Button>Finalizar Compra</Button>
-                </Link>
+                <Button onClick={checkoutCompra}>Finalizar Compra</Button>
               </Flex>
             </Box>
           </Box>

@@ -1,11 +1,13 @@
 import { useContext } from 'react'
 
 import { Box, Container, Text } from '@chakra-ui/react'
+import { useParams } from 'react-router-dom'
 
 import CartContext from '../../Context/CartContext'
 
 const Pedidos = () => {
   const { cart } = useContext(CartContext)
+  const { orderId } = useParams()
 
   const hoy = new Date()
   const anio = hoy.getFullYear()
@@ -26,7 +28,7 @@ const Pedidos = () => {
             pb={'10px'}
             pt={'10px'}
           >
-            Pedido #
+            Pedido #{orderId}
           </Text>
           <Text marginLeft={'20px'} fontWeight={'bold'} fontSize={'14px'}>
             Productos
@@ -34,7 +36,11 @@ const Pedidos = () => {
           {!!cart.length && (
             <Box>
               {cart.map((producto, index) => (
-                <Text marginLeft={'20px'} fontSize={'14px'}>
+                <Text
+                  marginLeft={'20px'}
+                  fontSize={'14px'}
+                  key={producto.attributes.id}
+                >
                   {`${index + 1}`}. {producto.attributes.title}
                 </Text>
               ))}
