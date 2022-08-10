@@ -57,7 +57,7 @@ const PedidosCarrito = () => {
             </Box>
           </Box>
           <Box w="50%">
-            <Box bg="gray.300">
+            <Box bgColor={'wheat'}>
               <Text
                 fontSize={'30px'}
                 pb={'30px'}
@@ -82,7 +82,7 @@ const PedidosCarrito = () => {
                   <Text>Total</Text>
                   <Text fontWeight={'bold'}>{`$ ${total}`}</Text>
                 </Flex>
-                <Button onClick={checkoutCompra}>Finalizar Compra</Button>
+                <Button onClick={checkoutCompra} bgColor={'tan'}>Finalizar Compra</Button>
               </Flex>
             </Box>
           </Box>

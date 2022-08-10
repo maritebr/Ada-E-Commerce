@@ -40,6 +40,12 @@ const Carrito = () => {
           {!!cart.length || (
             <DrawerBody>
               <Text> No hay productos en el carrito ☹️</Text>
+              <Link to="/tienda">
+                <Button bgColor={'tan'} ml={'8'} mt={'10'}>
+                  {' '}
+                  Volver a la tienda{' '}
+                </Button>
+              </Link>
             </DrawerBody>
           )}
 
@@ -54,22 +60,29 @@ const Carrito = () => {
                 ))}
               </DrawerBody>
               <DrawerFooter display="flex" flexDir="column">
+                <Text fontSize={'20px'} p={'5'} fontWeight={'bold'}>Total: ${total}</Text>
+                {token && (
+                  <Link to="/carrito">
+                    <Button
+                      variant="outline"
+                      bgColor={'tan'}
+                      mb={3}
+                      w="full"
+                      onClick={onClose}
+                    >
+                      Continuar compra
+                    </Button>
+                  </Link>
+                )}
                 <Button
                   variant="outline"
+                  bgColor={'tan'}
                   mb={3}
                   w="full"
                   onClick={() => vaciarCarrito()}
                 >
                   Vaciar Carrito
                 </Button>
-                <Text>Total: {total}</Text>
-                {token && (
-                  <Link to="/carrito">
-                    <Button variant="outline" mb={3} w="full" onClick={onClose}>
-                      Continuar compra
-                    </Button>
-                  </Link>
-                )}
                 {!!token || (
                   <Button
                     variant="outline"

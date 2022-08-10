@@ -34,15 +34,14 @@ const Producto = ({ producto }) => {
           icon={<BsFillArrowRightCircleFill />}
           onClick={() => addProduct(producto)}
         />
-        {producto.cantidad > 0 ?
-            (
+        {producto.cantidad > 0
+          ? (
           <IconButton
             icon={<BsFillTrashFill />}
             onClick={() => deleteProduct(producto.id)}
           />
             )
-          :
-            (
+          : (
               deleteProduct(producto.id)
             )}
       </Box>

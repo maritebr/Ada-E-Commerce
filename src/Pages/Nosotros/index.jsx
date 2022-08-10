@@ -11,7 +11,7 @@ const Nosotros = () => {
         />
         <Box display="flex" justifyContent="center" p="10">
           <Link to="/">
-            <Button colorScheme="blue">Ir a home</Button>
+            <Button colorScheme="yellow">Ir a home</Button>
           </Link>
         </Box>
       </Container>

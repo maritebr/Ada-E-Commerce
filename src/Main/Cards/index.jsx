@@ -32,7 +32,7 @@ const Cards = ({ offPage, elementsForPage }) => {
                 maxW={'330px'}
                 w={'full'}
                 bg={useColorModeValue('white', 'gray.800')}
-                boxShadow={'2xl'}
+                border={'solid tan 3px'}
                 rounded={'lg'}
                 pos={'relative'}
               >

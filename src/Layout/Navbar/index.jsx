@@ -18,7 +18,7 @@ const Navbar = () => {
   return (
     <>
       <Container maxW="container.xl" mt="5">
-        <Box bg={useColorModeValue('none')} px={4}>
+        <Box bg={useColorModeValue('tan')} p={2}>
           <Flex
             h={16}
             m={'2'}

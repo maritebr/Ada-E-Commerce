@@ -1,6 +1,6 @@
 import { useContext } from 'react'
 
-import { Button, Menu, MenuButton, MenuItem, MenuList } from '@chakra-ui/react'
+import { Button, Menu, MenuButton, MenuItem, MenuList, useColorModeValue } from '@chakra-ui/react'
 import { FaRegUser } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 
@@ -13,8 +13,12 @@ const SesionIniciada = () => {
   return (
     <>
       <Menu>
-        {token && <MenuButton as={Button}>{<FaRegUser />}</MenuButton>}
-        <MenuList>
+        {token && (
+          <MenuButton as={Button} bg={useColorModeValue('wheat')}>
+            {<FaRegUser />}
+          </MenuButton>
+        )}
+        <MenuList zIndex={'2'}>
           <Link to="/">
             <MenuItem>Bienvenid@ {username}</MenuItem>
           </Link>

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 
 import {
   Heading,
@@ -22,6 +22,7 @@ import {
 import { BsCart } from 'react-icons/bs'
 import { Link } from 'react-router-dom'
 
+import CartContext from '../../Context/CartContext'
 import useGet from '../../Hooks/useGet'
 import Cards from '../../Main/Cards'
 import Paginado from './Paginado'
@@ -29,6 +30,7 @@ import Paginado from './Paginado'
 const elementsForPage = 6
 
 const Tienda = () => {
+  const { addProduct } = useContext(CartContext)
   const [page, setPage] = useState(1)
   const [productos, setProducto] = useState([])
   const { data } = useGet('/products?populate[0]=image')
@@ -42,7 +44,6 @@ const Tienda = () => {
     const filtrarP = data.data.filter((productFl) =>
       productFl.attributes.title.toLowerCase().includes(event.target.value)
     )
-
     setProducto(filtrarP)
     setPage(1)
   }
@@ -91,6 +92,8 @@ const Tienda = () => {
                 Filtrar por precio
               </FormLabel>
               <RangeSlider
+                w={'60'}
+                colorScheme="yellow"
                 onChangeEnd={handleRangeSlider}
                 aria-label={['min', 'max']}
                 defaultValue={[0, 20000]}

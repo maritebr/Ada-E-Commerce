@@ -41,20 +41,20 @@ export default function Carousel () {
   // This can be static or loaded from a server
   const cards = [
     {
-      title: 'Design Projects 1',
-      text: "The project board is an exclusive resource for contract work. It's perfect for freelancers, agencies, and moonlighters.",
+      title: 'Bienvenidos a AdaShop',
+      text: 'En Ada Shop encontrarás variedad de articulos para la decoración de tu hogar',
       image:
         'https://images.unsplash.com/photo-1595329088732-d3b286981166?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80'
     },
     {
-      title: 'Design Projects 2',
-      text: "The project board is an exclusive resource for contract work. It's perfect for freelancers, agencies, and moonlighters.",
+      title: 'Muebles y decoración',
+      text: 'Encontrá las últimas novedades y consultános cualquier duda.',
       image:
         'https://images.unsplash.com/photo-1600585152220-90363fe7e115?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80'
     },
     {
-      title: 'Design Projects 3',
-      text: "The project board is an exclusive resource for contract work. It's perfect for freelancers, agencies, and moonlighters.",
+      title: 'Mirá nuestra tienda',
+      text: 'Aprovecha nuestras promos y descuentos de final de temporada',
       image:
         'https://images.unsplash.com/photo-1616191341342-152286d00181?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80'
     }
@@ -63,7 +63,7 @@ export default function Carousel () {
   return (
     <Box
       position={'relative'}
-      height={'450px'}
+      height={'470px'}
       width={'full'}
       overflow={'hidden'}
     >
@@ -118,7 +118,7 @@ export default function Carousel () {
             backgroundImage={`url(${card.image})`}
           >
             {/* This is the block you need to change, to customize the caption */}
-            <Container size="container.lg" height="600px" position="relative">
+            <Container size="container.lg" height="400px" position="relative">
               <Stack
                 spacing={6}
                 w={'full'}
@@ -127,10 +127,19 @@ export default function Carousel () {
                 top="50%"
                 transform="translate(0, -50%)"
               >
-                <Heading fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}>
+                <Heading
+                  fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}
+                  textAlign={'center'}
+                >
                   {card.title}
                 </Heading>
-                <Text fontSize={{ base: 'md', lg: 'lg' }} color="GrayText">
+                <Text
+                  fontSize={{ base: 'md', lg: 'lg' }}
+                  color="black"
+                  fontWeight={'bold'}
+                  p={'2'}
+                  textAlign={'center'}
+                >
                   {card.text}
                 </Text>
               </Stack>

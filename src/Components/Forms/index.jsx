@@ -37,7 +37,7 @@ const Forms = () => {
   return (
     <>
       {!token && (
-        <Button onClick={onOpen} bg={useColorModeValue('none')}>
+        <Button onClick={onOpen} bg={useColorModeValue('peru')}>
           {<FaRegUser />}
         </Button>
       )}
